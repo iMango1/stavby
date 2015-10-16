@@ -315,6 +315,8 @@ dl dd {
 }
 div#header-sticky {
 	height: auto;
+    background: url(/obsah/themes/snadnestavby/images/stick_menu.jpg) repeat left top scroll !important;
+}
 }
 .menu-compact.accordion {
 	-webkit-box-shadow: 0px 7px 0px 0px rgba(38, 38, 38, 0.28);
