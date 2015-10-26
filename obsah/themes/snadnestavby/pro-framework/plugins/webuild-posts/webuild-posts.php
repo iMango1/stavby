@@ -79,7 +79,7 @@ function create_topics_hierarchical_taxonomy() {
 	) );
 	register_taxonomy( 'clients-categories', array( 'pro_clients' ), array(
 		'hierarchical'      => true,
-		'labels'            => $labels3,
+		'labels'            => $labels4,
 		'show_ui'           => true,
 		'show_admin_column' => true,
 		'query_var'         => true

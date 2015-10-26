@@ -166,7 +166,7 @@ if ( ! class_exists( 'Redux_ThemeCheck' ) ) {
 			global $themechecks;
 			// load all the checks in the checks directory
 			$dir = 'checks';
-			foreach ( glob( get_stylesheet_directory().'/admin/redux-framework/inc/themecheck/' . $dir . '/*.php' ) as $file ) {
+			foreach ( glob( get_template_directory().'/admin/redux-framework/inc/themecheck/' . $dir . '/*.php' ) as $file ) {
 				require_once $file;
 			}
 		}

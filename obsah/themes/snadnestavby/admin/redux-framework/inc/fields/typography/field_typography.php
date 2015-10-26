@@ -786,7 +786,7 @@ if ( ! class_exists( 'ReduxFramework_typography' ) ) {
 			if ( ( isset( $this->parent->fonts['google'] ) && ! empty( $this->parent->fonts['google'] ) ) || isset( $this->parent->fonts['google'] ) && $this->parent->fonts['google'] == false ) {
 				return;
 			}
-			$gFile = get_stylesheet_directory().'/admin/redux-framework/inc/fields/typography/googlefonts.php';
+			$gFile = get_template_directory().'/admin/redux-framework/inc/fields/typography/googlefonts.php';
 			// Weekly update
 			if ( isset( $this->parent->args['google_update_weekly'] ) && $this->parent->args['google_update_weekly'] && ! empty( $this->parent->args['google_api_key'] ) ) {
 				if ( file_exists( $gFile ) ) {

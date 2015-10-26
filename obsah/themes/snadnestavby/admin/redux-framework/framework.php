@@ -29,8 +29,8 @@ if ( has_action( 'ecpt_field_options_' ) ) {
 }
 if ( ! class_exists( 'ReduxFrameworkInstances' ) ) {
 	// Instance Container
-	require_once get_stylesheet_directory() . '/admin/redux-framework' . '/inc/class.redux_instances.php';
-	require_once get_stylesheet_directory() . '/admin/redux-framework' . '/inc/lib.redux_instances.php';
+	require_once get_template_directory() . '/admin/redux-framework' . '/inc/class.redux_instances.php';
+	require_once get_template_directory() . '/admin/redux-framework' . '/inc/lib.redux_instances.php';
 }
 if ( class_exists( 'ReduxFrameworkInstances' ) ) {
 	add_action( 'redux/init', 'ReduxFrameworkInstances::get_instance' );
@@ -38,21 +38,21 @@ if ( class_exists( 'ReduxFrameworkInstances' ) ) {
 // Don't duplicate me!
 if ( ! class_exists( 'ReduxFramework' ) ) {
 	// Redux CDN class
-	require_once get_stylesheet_directory() . '/admin/redux-framework' . '/inc/class.redux_cdn.php';
+	require_once get_template_directory() . '/admin/redux-framework' . '/inc/class.redux_cdn.php';
 	// Redux API class  :)
-	require_once get_stylesheet_directory() . '/admin/redux-framework' . '/inc/class.redux_api.php';
+	require_once get_template_directory() . '/admin/redux-framework' . '/inc/class.redux_api.php';
 	// General helper functions
-	require_once get_stylesheet_directory() . '/admin/redux-framework' . '/inc/class.redux_helpers.php';
+	require_once get_template_directory() . '/admin/redux-framework' . '/inc/class.redux_helpers.php';
 	// General functions
-	require_once get_stylesheet_directory() . '/admin/redux-framework' . '/inc/class.redux_functions.php';
-	require_once get_stylesheet_directory() . '/admin/redux-framework' . '/inc/class.p.php';
-	require_once get_stylesheet_directory() . '/admin/redux-framework' . '/inc/class.redux_filesystem.php';
-	require_once get_stylesheet_directory() . '/admin/redux-framework' . '/inc/class.redux_admin_notices.php';
+	require_once get_template_directory() . '/admin/redux-framework' . '/inc/class.redux_functions.php';
+	require_once get_template_directory() . '/admin/redux-framework' . '/inc/class.p.php';
+	require_once get_template_directory() . '/admin/redux-framework' . '/inc/class.redux_filesystem.php';
+	require_once get_template_directory() . '/admin/redux-framework' . '/inc/class.redux_admin_notices.php';
 	// ThemeCheck checks
-	require_once get_stylesheet_directory() . '/admin/redux-framework' . '/inc/themecheck/class.redux_themecheck.php';
+	require_once get_template_directory() . '/admin/redux-framework' . '/inc/themecheck/class.redux_themecheck.php';
 	// Welcome
-	require_once get_stylesheet_directory() . '/admin/redux-framework' . '/inc/welcome/welcome.php';
-	//require_once get_stylesheet_directory() . '/admin/redux-framework' . '/inc/class.redux_sass.php';
+	require_once get_template_directory() . '/admin/redux-framework' . '/inc/welcome/welcome.php';
+	//require_once get_template_directory() . '/admin/redux-framework' . '/inc/class.redux_sass.php';
 	/**
 	 * Main ReduxFramework class
 	 *
@@ -74,12 +74,12 @@ if ( ! class_exists( 'ReduxFramework' ) ) {
 		public static $_as_plugin = false;
 
 		public static function init() {
-			$dir = Redux_Helpers::cleanFilePath( get_stylesheet_directory() . '/admin/redux-framework' );
+			$dir = Redux_Helpers::cleanFilePath( get_template_directory() . '/admin/redux-framework' );
 			// Windows-proof constants: replace backward by forward slashes. Thanks to: @peterbouwmeester
 			self::$_dir           = trailingslashit( $dir );
 			self::$wp_content_url = trailingslashit( Redux_Helpers::cleanFilePath( ( is_ssl() ? str_replace( 'http://', 'https://', WP_CONTENT_URL ) : WP_CONTENT_URL ) ) );
 			// See if Redux is a plugin or not
-			if ( strpos( Redux_Helpers::cleanFilePath( __FILE__ ), Redux_Helpers::cleanFilePath( get_stylesheet_directory() ) ) !== false || strpos( Redux_Helpers::cleanFilePath( __FILE__ ), Redux_Helpers::cleanFilePath( get_template_directory_uri() ) ) !== false || strpos( Redux_Helpers::cleanFilePath( __FILE__ ), Redux_Helpers::cleanFilePath( WP_CONTENT_DIR . '/themes/' ) ) !== false ) {
+			if ( strpos( Redux_Helpers::cleanFilePath( __FILE__ ), Redux_Helpers::cleanFilePath( get_template_directory() ) ) !== false || strpos( Redux_Helpers::cleanFilePath( __FILE__ ), Redux_Helpers::cleanFilePath( get_template_directory_uri() ) ) !== false || strpos( Redux_Helpers::cleanFilePath( __FILE__ ), Redux_Helpers::cleanFilePath( WP_CONTENT_DIR . '/themes/' ) ) !== false ) {
 				self::$_is_plugin = false;
 			} else {
 				// Check if plugin is a symbolic link, see if it's a plugin. If embedded, we can't do a thing.
@@ -105,9 +105,9 @@ if ( ! class_exists( 'ReduxFramework' ) ) {
 				if ( strpos( Redux_Helpers::cleanFilePath( __FILE__ ), Redux_Helpers::cleanFilePath( get_template_directory() ) ) !== false ) {
 					$relative_url = str_replace( Redux_Helpers::cleanFilePath( get_template_directory() ), '', self::$_dir );
 					self::$_url   = trailingslashit( get_template_directory_uri() . $relative_url );
-				} else if ( strpos( Redux_Helpers::cleanFilePath( __FILE__ ), Redux_Helpers::cleanFilePath( get_stylesheet_directory() ) ) !== false ) {
-					$relative_url = str_replace( Redux_Helpers::cleanFilePath( get_stylesheet_directory() ), '', self::$_dir );
-					self::$_url   = trailingslashit( get_stylesheet_directory_uri() . $relative_url );
+				} else if ( strpos( Redux_Helpers::cleanFilePath( __FILE__ ), Redux_Helpers::cleanFilePath( get_template_directory() ) ) !== false ) {
+					$relative_url = str_replace( Redux_Helpers::cleanFilePath( get_template_directory() ), '', self::$_dir );
+					self::$_url   = trailingslashit( get_template_directory_uri() . $relative_url );
 				} else {
 					$wp_content_dir = trailingslashit( Redux_Helpers::cleanFilePath( WP_CONTENT_DIR ) );
 					$wp_content_dir = trailingslashit( str_replace( '//', '/', $wp_content_dir ) );
@@ -573,8 +573,8 @@ if ( ! class_exists( 'ReduxFramework' ) ) {
 
 // get_instance()
 		private function _tracking() {
-			if ( file_exists( get_stylesheet_directory() . '/admin/redux-framework' . '/inc/tracking.php' ) ) {
-				require_once get_stylesheet_directory() . '/admin/redux-framework' . '/inc/tracking.php';
+			if ( file_exists( get_template_directory() . '/admin/redux-framework' . '/inc/tracking.php' ) ) {
+				require_once get_template_directory() . '/admin/redux-framework' . '/inc/tracking.php';
 				$tracking = Redux_Tracking::get_instance();
 				$tracking->load( $this );
 			}
@@ -2081,7 +2081,7 @@ if ( ! class_exists( 'ReduxFramework' ) ) {
 		 * @return      void
 		 */
 		private function _register_extensions() {
-			$path    = get_stylesheet_directory() . '/admin/redux-framework' . '/inc/extensions/';
+			$path    = get_template_directory() . '/admin/redux-framework' . '/inc/extensions/';
 			$folders = scandir( $path, 1 );
 			/**
 			 * action 'redux/extensions/before'

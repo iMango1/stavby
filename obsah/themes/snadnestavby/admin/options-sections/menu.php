@@ -65,7 +65,7 @@ Redux::setSection( $opt_name, array(
 				'font-size'      => '15px',
 				'font-family'    => 'Lato',
 				'font-weight'    => '700',
-				'line-height'    => '100px',
+				'line-height'    => '24px',
 				'text-transform' => 'uppercase',
 				'google'         => 1,
 				'font-options'   => '',
@@ -102,9 +102,19 @@ Redux::setSection( $opt_name, array(
 			)
 		),
 		array(
+			'id'       => 'main-menu-list-item-hover',
+			'type'     => 'color',
+			'title'    => esc_html__( 'Main menu Item text color on hover', 'webuild' ),
+			'subtitle' => esc_html__( 'From here you can set the hover color of the pages in menu.', 'webuild' ),
+			'default'  => '#ffffff',
+			'compiler' => array(
+				'.primary-menu > li > a:hover'
+			)
+		),
+		array(
 			'id'       => 'column-list-item-hover',
 			'type'     => 'color',
-			'title'    => esc_html__( 'Item text color on hover', 'webuild' ),
+			'title'    => esc_html__( 'Submenu Item text color on hover', 'webuild' ),
 			'subtitle' => esc_html__( 'From here you can set the hover color of the pages in the dropdown menu.', 'webuild' ),
 			'default'  => '#ffffff',
 			'compiler' => array(

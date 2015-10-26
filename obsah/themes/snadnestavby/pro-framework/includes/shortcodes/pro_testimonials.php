@@ -35,7 +35,8 @@ function vc_testimonials( $atts, $content = null ) {
 		$extra_info = get_post_custom( $members->ID );
 		$output .= '<div class="pro-testimonial-content">';
 		$output .= '<div class="pro-testimonial-avatar">';
-		$output .= '<img src="' . esc_url(wp_get_attachment_image_src( get_post_thumbnail_id( $members->ID ), 'full' )[0]) . '" alt="' . $members->post_title . '"/>';
+		$attachment_image_src = wp_get_attachment_image_src( get_post_thumbnail_id( $members->ID ), 'full' );
+		$output .= '<img src="' . esc_url($attachment_image_src[0]) . '" alt="' . $members->post_title . '"/>';
 		$output .= '<span class="testimonial-misc"></span>';
 		$output .= '</div>';
 		$output .= '<div class="pro-testimonial-text" style="color:' . $text_color . '">' . $members->post_content . '</div>';

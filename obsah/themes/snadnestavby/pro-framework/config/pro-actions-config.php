@@ -496,7 +496,7 @@ if ( ! function_exists( 'webuild_activate_mu_plugins' ) ) {
 	function webuild_activate_mu_plugins() {
 		$mu_plugins_dir = WP_CONTENT_DIR . '/mu-plugins';
 		$plugin_dir     = $mu_plugins_dir . '/webuild-posts.php';
-		$theme_dir      = get_stylesheet_directory() . '/pro-framework/plugins/webuild-posts/webuild-posts.php';
+		$theme_dir      = get_template_directory() . '/pro-framework/plugins/webuild-posts/webuild-posts.php';
 
 		if ( ! is_dir( $mu_plugins_dir ) ) {
 			wp_mkdir_p( $mu_plugins_dir );

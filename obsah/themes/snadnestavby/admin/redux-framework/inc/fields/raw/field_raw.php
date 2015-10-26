@@ -33,7 +33,7 @@ if ( ! class_exists( 'ReduxFramework_raw' ) ) {
 			}
 			if ( ! empty( $this->field['content'] ) && isset( $this->field['content'] ) ) {
 				if ( isset( $this->field['markdown'] ) && $this->field['markdown'] == true ) {
-					require_once get_stylesheet_directory().'/admin/redux-framework/inc/fields/raw/parsedown.php';
+					require_once get_template_directory().'/admin/redux-framework/inc/fields/raw/parsedown.php';
 					$Parsedown = new Parsedown();
 					echo $Parsedown->text( $this->field['content'] );
 				} else {

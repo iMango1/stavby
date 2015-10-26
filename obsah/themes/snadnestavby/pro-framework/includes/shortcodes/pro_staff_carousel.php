@@ -67,10 +67,12 @@ function vc_staff( $atts, $content = null ) {
 			$output .= '<div class="pro-team-member col-md-' . $size_class . '">';
 			$output .= '<figure ' . $border_color_style . '>';
 			$output .= '<span class="outline"></span>';
-			$output .= '<img src="' . esc_url(wp_get_attachment_image_src( get_post_thumbnail_id( $members->ID ), 'full' )[0]) . '" alt="<b>' . $members->post_title . '</b>" />';
+			$attachment_image_src = wp_get_attachment_image_src( get_post_thumbnail_id( $members->ID ), 'full' );
+			$output .= '<img src="' . esc_url($attachment_image_src[0]) . '" alt="<b>' . $members->post_title . '</b>" />';
 			$output .= '</figure>';
 			$output .= '<h4 ' . $heading_color_style . '>' . $members->post_title . '</h4>';
-			$output .= '<h6 ' . $job_color_style . '>' . wp_get_post_terms( $members->ID, 'staff-categories' )[0]->name . '</h6>';
+			$members_terms = wp_get_post_terms( $members->ID, 'staff-categories' );
+			$output .= '<h6 ' . $job_color_style . '>' . $members_terms[0]->name . '</h6>';
 			$output .= '<div class="about" ' . $text_color_style . '>' . $extra_info["staff_member_description"][0] . '</div>';
 			$output .= '<div class="social">';
 			$output .= '<a href="mailto:' . $extra_info['staff_member_email'][0] . '" target="_blank" class="fa fa-envelope" data-toggle="tooltip" data-html="true" ></a>';
@@ -121,10 +123,12 @@ function vc_staff( $atts, $content = null ) {
 			$output .= '<div class="pro-team-member col-md-6" style="float:none;">';
 			$output .= '<figure style="border-color:' . $border_color . ' !important;">';
 			$output .= '<span class="outline"></span>';
-			$output .= '<img src="' . esc_url(wp_get_attachment_image_src( get_post_thumbnail_id( $members->ID ), 'full' )[0]) . '" alt="<b>' . $members->post_title . '</b>" />';
+			$attachment_image_src = wp_get_attachment_image_src( get_post_thumbnail_id( $members->ID ), 'full' );
+			$output .= '<img src="' . esc_url($attachment_image_src[0]) . '" alt="<b>' . $members->post_title . '</b>" />';
 			$output .= '</figure>';
 			$output .= '<h4 style="color:' . $heading_color . ';">' . $members->post_title . '</h4>';
-			$output .= '<h6 style="color:' . $job_color . ';">' . wp_get_post_terms( $members->ID, 'staff-categories' )[0]->name . '</h6>';
+			$members_terms = wp_get_post_terms( $members->ID, 'staff-categories' );
+			$output .= '<h6 style="color:' . $job_color . ';">' . $members_terms[0]->name . '</h6>';
 			$output .= '<div class="about" style="color:' . $text_color . ';">' . $extra_info["staff_member_description"][0] . '</div>';
 			$output .= '<div class="social">';
 			$output .= '<a href="mailto:' . $extra_info['staff_member_email'][0] . '" target="_blank" class="fa fa-envelope" data-toggle="tooltip" data-html="true" ></a>';
@@ -263,10 +267,12 @@ function vc_staff_carousel( $atts, $content = null ) {
 		$output .= '<div class="pro-team-member col-md-' . $size_class . '">';
 		$output .= '<figure ' . $border_color_style . '>';
 		$output .= '<span class="outline"></span>';
-		$output .= '<img src="' . esc_url(wp_get_attachment_image_src( get_post_thumbnail_id( $members->ID ), 'full' )[0]) . '" alt="<b>' . $members->post_title . '</b>" />';
+		$attachment_image_src = wp_get_attachment_image_src( get_post_thumbnail_id( $members->ID ), 'full' );
+		$output .= '<img src="' . esc_url($attachment_image_src[0]) . '" alt="<b>' . $members->post_title . '</b>" />';
 		$output .= '</figure>';
 		$output .= '<h4 style="color:' . $heading_color . ';">' . $members->post_title . '</h4>';
-		$output .= '<h6 style="color:' . $job_color . ';">' . wp_get_post_terms( $members->ID, 'staff-categories' )[0]->name . '</h6>';
+		$members_terms = wp_get_post_terms( $members->ID, 'staff-categories' );
+		$output .= '<h6 style="color:' . $job_color . ';">' . $members_terms[0]->name . '</h6>';
 		$output .= '<div class="about" style="color:' . $text_color . ';">' . $extra_info["staff_member_description"][0] . '</div>';
 		$output .= '<div class="social">';
 		if ( isset( $extra_info['staff_member_email'][0] ) ) {

@@ -171,7 +171,7 @@ if ( ! class_exists( 'ReduxFramework_extension_import_export' ) ) {
 
 		// Forces the use of the embeded field path vs what the core typically would use
 		public function overload_field_path( $field ) {
-			return get_stylesheet_directory().'/admin/redux-framework/inc/extensions/import_export/' . $this->field_name . '/field_' . $this->field_name . '.php';
+			return get_template_directory().'/admin/redux-framework/inc/extensions/import_export/' . $this->field_name . '/field_' . $this->field_name . '.php';
 		}
 
 		public function remove_cookie() {

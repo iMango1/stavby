@@ -60,7 +60,7 @@ if ( ! class_exists( 'ReduxFramework_extension_customizer' ) ) {
 			}
 			$this->parent = $parent;
 			if ( empty( $this->_extension_dir ) ) {
-				$this->_extension_dir = trailingslashit( str_replace( '\\', '/', get_stylesheet_directory().'/admin/redux-framework/inc/extensions/customizer/' ) );
+				$this->_extension_dir = trailingslashit( str_replace( '\\', '/', get_template_directory().'/admin/redux-framework/inc/extensions/customizer/' ) );
 				$this->_extension_url = site_url( str_replace( trailingslashit( str_replace( '\\', '/', ABSPATH ) ), '', $this->_extension_dir ) );
 			}
 			self::get_post_values();

@@ -129,7 +129,8 @@ function vc_clients( $atts, $content = null ) {
 		$extra_info = get_post_custom( $members->ID );
 		$output .= '<li style="width:' . $box_width . '%;' . $last_box . 'border-color:' . $border_color . ';");">';
 		$output .= '<a style="width:100%;height:100%;" href="' . $extra_info["client_link"][0] . '" target="_blank">';
-		$output .= '<img style="max-height:100%;" src="' . esc_url(wp_get_attachment_image_src( get_post_thumbnail_id( $members->ID ), 'full' )[0]) . '" />';
+		$attachment_image_src = wp_get_attachment_image_src( get_post_thumbnail_id( $members->ID ), 'full' );
+		$output .= '<img style="max-height:100%;" src="' . esc_url($attachment_image_src[0]) . '" />';
 		$output .= '</a>';
 		$output .= '</li>';
 	}
@@ -204,7 +205,8 @@ function vc_clients_carousel( $atts, $content = null ) {
 		$border_color_style = $border_color ? 'border-color:' . $border_color . ';' : '';
 		$output .= '<div style="' . $box_width_style . $border_color_style . '">';
 		$output .= '<a style="width:100%;height:100%;" href="' . $extra_info["client_link"][0] . '" target="_blank">';
-		$output .= '<img style="max-height:100%;width:100%;" alt="client-' . $members->ID . '" src="' . esc_url(wp_get_attachment_image_src( get_post_thumbnail_id( $members->ID ), 'full' )[0]) . '" />';
+		$attachment_image_src = wp_get_attachment_image_src( get_post_thumbnail_id( $members->ID ), 'full' );
+		$output .= '<img style="max-height:100%;width:100%;" alt="client-' . $members->ID . '" src="' . esc_url($attachment_image_src[0]) . '" />';
 		$output .= '</a>';
 		$output .= '</div>';
 	}

@@ -84,7 +84,7 @@ if ( ! class_exists( 'ReduxFramework_Extension_options_object' ) ) {
 
 		// Forces the use of the embeded field path vs what the core typically would use
 		public function overload_field_path( $field ) {
-			return get_stylesheet_directory().'/admin/redux-framework/inc/extensions/options_object/' . $this->field_name . '/field_' . $this->field_name . '.php';
+			return get_template_directory().'/admin/redux-framework/inc/extensions/options_object/' . $this->field_name . '/field_' . $this->field_name . '.php';
 		}
 	} // class
 } // if

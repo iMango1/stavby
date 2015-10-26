@@ -75,7 +75,7 @@ $args['share_icons'][] = array(
 	'icon'  => 'fa fa-facebook'
 );
 $args['share_icons'][] = array(
-	'url'   => 'https://twitter.com/redbeepro',
+	'url'   => 'https://twitter.com/NetBee_co',
 	'title' => 'Follow us on Twitter',
 	'icon'  => 'fa fa-twitter'
 );

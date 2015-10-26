@@ -3,7 +3,7 @@
 // Make sure {$redux_opt_name} is defined.
 if ( ! function_exists( 'redux_register_custom_extension_loader' ) ) :
 	function redux_register_custom_extension_loader( $ReduxFramework ) {
-		$path    = get_stylesheet_directory() . '/admin/redux-extensions/extensions/';
+		$path    = get_template_directory() . '/admin/redux-extensions/extensions/';
 		$folders = scandir( $path, 1 );
 		foreach ( $folders as $folder ) {
 			if ( $folder === '.' or $folder === '..' or ! is_dir( $path . $folder ) ) {

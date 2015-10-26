@@ -54,7 +54,7 @@ if ( ! class_exists( 'ReduxFramework_extension_metaboxes' ) ) {
 			$this->parent = $parent;
 			$this->parent->extensions['metaboxes'] = $this;
 			if ( empty( self::$_extension_dir ) ) {
-				$this->_extension_dir = trailingslashit( str_replace( '\\', '/', get_stylesheet_directory().'/admin/redux-extensions/extensions/metaboxes/' ) );
+				$this->_extension_dir = trailingslashit( str_replace( '\\', '/', get_template_directory().'/admin/redux-extensions/extensions/metaboxes/' ) );
 				$this->_extension_url = site_url( str_replace( trailingslashit( str_replace( '\\', '/', ABSPATH ) ), '', $this->_extension_dir ) );
 			}
 			// Only run metaboxes on the pages/posts, not the front-end

@@ -212,7 +212,7 @@ if ( ! class_exists( 'Redux_Helpers' ) ) {
 
 		public static function isChildTheme( $file ) {
 			$file = self::cleanFilePath( $file );
-			$dir  = self::cleanFilePath( get_stylesheet_directory() );
+			$dir  = self::cleanFilePath( get_template_directory() );
 			$file = str_replace( '//', '/', $file );
 			$dir  = str_replace( '//', '/', $dir );
 			if ( strpos( $file, $dir ) !== false ) {
