@@ -267,7 +267,7 @@ div.wp-caption.alignright .wp-caption-text {
 	border: medium none;
 	color: #ffffff;
 	cursor: pointer;
-	font-family: "Lato";
+	font-family: "Open Sans";
 	font-size: 14px;
 	font-weight: 900;
 	padding: 10px;
@@ -319,7 +319,7 @@ dl dd {
 }
 div#header-sticky {
 	height: auto;
-    background: url(/obsah/themes/snadnestavby/images/stick_menu.jpg) repeat left top scroll !important;
+    background: url(/obsah/themes/snadnestavby/images/stick_menu.png) repeat left top scroll !important;
 }
 .menu-compact.accordion {
 	-webkit-box-shadow: 0px 7px 0px 0px rgba(38, 38, 38, 0.28);
@@ -856,7 +856,7 @@ div#header-sticky {
 3.0 Menu
 --------------------------------------------------------------*/
 li.back {
-	height: 7.5px;
+	height: 4.5px;
 	z-index: 8;
 	position: absolute;
 	overflow: visible;
@@ -1595,8 +1595,15 @@ li .fa.dropdown-icon {
 .logo {
 	text-align: center;
 }
+.fixed .logo img {
+    top: 7px;    
+}
 .logo img {
 	vertical-align: middle;
+    top: 18px;
+    height: 40px;
+    
+    position: absolute;
 }
 /*sticky header*/
 body #header-sticky.sticky-header {

@@ -293,7 +293,7 @@ Redux::setSection( $opt_name, array(
 				'color'       => '#a1b1bc',
 				'font-size'   => '14px',
 				'font-weight' => '400',
-				'font-family' => 'Lato',
+				'font-family' => '"Open Sans"',
 				'google'      => true
 			),
 			'required'    => array(
@@ -454,7 +454,7 @@ Redux::setSection( $opt_name, array(
 			'default'        => array(
 				'color'          => '#2c3e50',
 				'font-size'      => '14px',
-				'font-family'    => 'Lato',
+				'font-family'    => '"Open Sans"',
 				'font-weight'    => '700',
 				'line-height'    => '24px',
 				'text-transform' => 'uppercase'
