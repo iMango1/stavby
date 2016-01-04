@@ -19,7 +19,7 @@
 				if ( ! is_single() ) :
 					?>
 					<div class="post-excerpt entry-summary">
-						<?php the_excerpt(); ?>
+						<?php global $apro_options; echo sin_excerpt($apro_options['excerpt-length']); ?>
 					</div>
 					<!-- /entry-summary -->
 				<?php else : ?>

@@ -81,7 +81,7 @@ if ( ! function_exists( 'webuild_ajax_pagination' ) ) {
 			'posts_per_page' => $_POST['posts_per_page'],
 			'post_type'      => $type,
 		);
-		if ( $_POST['cat'] ) {
+		if ( isset($_POST['cat']) ) {
 			$query_args['cat'] = $_POST['cat'];
 		}
 		query_posts( $query_args );

@@ -63,7 +63,7 @@ Redux::setSection( $opt_name, array(
 			'default'        => array(
 				'color'          => '#2e3841',
 				'font-size'      => '15px',
-				'font-family'    => '"Open Sans"',
+				'font-family'    => 'Open Sans',
 				'font-weight'    => '700',
 				'line-height'    => '24px',
 				'text-transform' => 'uppercase',
@@ -81,7 +81,7 @@ Redux::setSection( $opt_name, array(
 			'default'  => array(
 				'color'       => '#ffffff',
 				'font-size'   => '14px',
-				'font-family' => '"Open Sans"',
+				'font-family' => 'Open Sans',
 				'font-weight' => '400',
 				'text-align'  => 'left',
 				'line-height' => '30px',
@@ -106,9 +106,9 @@ Redux::setSection( $opt_name, array(
 			'type'     => 'color',
 			'title'    => esc_html__( 'Main menu Item text color on hover', 'webuild' ),
 			'subtitle' => esc_html__( 'From here you can set the hover color of the pages in menu.', 'webuild' ),
-			'default'  => '#ffffff',
+			'default'  => '#f7c51e',
 			'compiler' => array(
-				'.primary-menu > li > a:hover'
+				'.primary-menu > li > a:hover, .primary-menu .navbar-nav > li > a:hover, .primary-menu .navbar-nav > li.current-menu-item > a, #header-sticky .primary-menu .navbar-nav > li.current-menu-item > a'
 			)
 		),
 		array(

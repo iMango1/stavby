@@ -785,13 +785,17 @@ function page_modified_css() {
 	global $apro_options;
 	$options = $apro_options;
 	ob_start();
+
 	if ( $options['main-menu-list-item-hover'] ) {
 		echo <<<CSS
 
-	.primary-menu .navbar-nav > li > a:hover {
+	.primary-menu .navbar-nav > li > a:hover, .primary-menu .navbar-nav > li.current-menu-item > a, #header-sticky .primary-menu .navbar-nav > li.current-menu-item > a {
 
 		color: {$options['main-menu-list-item-hover']} !important;
 
+	}
+	.primary-menu .navbar-nav > li.back {
+		background-color:{$options['main-menu-list-item-hover']} !important;
 	}
 
 CSS;
@@ -931,11 +935,11 @@ CSS;
 
 	.pro-slider {
 
-		margin-top:-{$options['content-offset']}px;
+		margin-top: -{$options['content-offset']['height']} !important;
 
 	}
 
-		
+
 
 CSS;
 		}
@@ -944,7 +948,7 @@ CSS;
 
 	#content-wrapper {
 
-		margin-top:-{$options['content-offset']}px;
+		margin-top:-{$options['content-offset']['height']} !important;
 
 	}
 
@@ -970,13 +974,16 @@ CSS;
 	}
 
 CSS;
-	if ( $options['logo-line-height'] ) {
+	if ( $options['logo-image-height']['height'] && $options['logo-image-height']['height'] != "px" ) {
 		echo <<<CSS
 
-	.style-1 .header-top, .style-1 .header-top .cart-info, .style-1 .header-top .logo {
+	 .header-top .logo , .header-top .logo a, .header-top .logo a img{
+		height: {$options['logo-image-height']['height']};
+		line-height: {$options['header-size']['height']}px;
 
-		line-height: {$options['logo-line-height']}px;
-
+	}
+	.header-top .logo a img, .header-top .logo a {
+		width: auto;
 	}
 
 CSS;
@@ -992,6 +999,45 @@ CSS;
 
 CSS;
 	};
+
+	if ( $options['sticky-header-bg-color']['color'] ) {
+			echo <<<CSS
+
+	#header-sticky {
+
+		background-color: {$apro_options['sticky-header-bg-color']['color']} !important;
+
+	}
+CSS;
+	};
+	if (isset($apro_options['sticky-header-bg-color']['rgba'])) {
+		echo <<<CSS
+
+	#header-sticky {
+
+		background-color: {$apro_options['sticky-header-bg-color']['rgba']} !important;
+
+	}
+CSS;
+	};
+
+	if ( $options['select-sticky-menu-font-family'] ) {
+		echo <<<CSS
+
+	#header-sticky .primary-menu .navbar-nav > li > a {
+
+		color: {$apro_options['select-sticky-menu-font-family']['color']} !important;
+		font-family: {$apro_options['select-sticky-menu-font-family']['font-family']} !important;
+		font-weight: {$apro_options['select-sticky-menu-font-family']['font-weight']} !important;
+		text-transform: {$apro_options['select-sticky-menu-font-family']['text-transform']} !important;
+		font-size: {$apro_options['select-sticky-menu-font-family']['font-size']} !important;
+		line-height: {$apro_options['select-sticky-menu-font-family']['line-height']} !important;
+
+	}
+
+CSS;
+	};
+
 	$output = ob_get_clean();
 	$css = $output;
 

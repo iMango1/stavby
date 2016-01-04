@@ -236,4 +236,22 @@ if ( ! function_exists( 'webuild_add_async_forscript' ) ) {
 		}
 	}
 	add_filter( 'clean_url', 'webuild_add_async_forscript', 11, 1 );
+if ( ! function_exists( 'sin_excerpt' ) ) {
+	function sin_excerpt($limit)
+	{
+		$excerpt = explode(' ', get_the_excerpt(), $limit+1);
+		if (count($excerpt) >= $limit) {
+			array_pop($excerpt);
+			$excerpt = implode(" ", $excerpt);
+			$excerpt = preg_replace('`\[[^\]]*\]`', '', $excerpt);
+			$excerpt = '<p>' . $excerpt . '[...]</p>';
+		} else {
+			$excerpt = implode(" ", $excerpt);
+			$excerpt = preg_replace('`\[[^\]]*\]`', '', $excerpt);
+			$excerpt = '<p>' . $excerpt . '</p>';
+		}
+		$excerpt .= '<a href="' . esc_url(get_permalink(get_the_ID())) . '" class="entry-more pro-btn pro-btn-rounded pro-btn-xxs pro-btn-flat-accent">' . esc_html__('Read More', 'webuild') . '<span class="screen-reader-text"> ' . esc_html__('about', 'webuild') . ' ' . get_the_title() . '</span></a>';
+		return $excerpt;
+	}
+}
 }

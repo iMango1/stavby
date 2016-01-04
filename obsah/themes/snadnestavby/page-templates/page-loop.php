@@ -25,7 +25,7 @@ if ( $layout == 'full' || $layout == 'full-100' ) {
 $container = $layout == 'full-100' ? "container-fluid" : "container";
 ?>
 <div
-	class="<?php echo esc_attr( $container ); ?> cont-padding page-layout-<?php echo esc_attr( $webuild_page_layout ); ?> blog-<?php echo esc_attr( $webuild_blog_class ); ?>">
+	class="<?php echo esc_attr( $container ); ?> cont-padding page-layout-<?php echo esc_attr( $webuild_blog_layout ); ?> blog-<?php echo esc_attr( $webuild_blog_class ); ?>">
 	<div class="row">
 		<?php webuild_page_sidebar( 'left', $layout, $lsidebar ); ?>
 		<div class="col-md-<?php echo esc_attr( $webuild_page_column ); ?>">

@@ -71,7 +71,13 @@
 <!-- #page -->
 </div>
 <?php
-$custom_style = '.primary-menu .navbar-nav > li > a {line-height: 100px;}';
+global $apro_options;
+if($apro_options['sticky-header-full-width'] == true){
+	$custom_style = '#header-sticky.fixed .container { width: 100%;}';
+}
+$custom_style .= '.primary-menu .navbar-nav > li > a {line-height: 100px;}';
+$custom_style .= '.open-search:hover { color: '.$apro_options['main-menu-list-item-hover'].'; }';
+$custom_style .= '.cart-info .shopping-cart:hover { color: '.$apro_options['main-menu-list-item-hover'].'; }';
 webuild_add_inline_style( $custom_style );
 wp_footer(); ?>
 </body>

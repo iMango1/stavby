@@ -49,6 +49,15 @@ if ( ! function_exists( "apro_add_metaboxes" ) ) {
 					'output'         => array(
 						'.cont-padding'
 					)
+				),
+
+				array(
+						'id'       => 'loader',
+						'type'     => 'switch',
+						'title'    => esc_html__( 'Use Page-Loader?', 'webuild' ),
+						'subtitle' => esc_html__( '', 'webuild' ),
+						'subtitle' => esc_html__( 'If you want to use a pre-loader for the pages select On.', 'webuild' ),
+						'default'  => false
 				)
 			)
 		);
@@ -77,6 +86,39 @@ if ( ! function_exists( "apro_add_metaboxes" ) ) {
 					'subtitle' => esc_html__( 'This option enables the website’s menu to always be visible on the page when you scroll down.', 'webuild' ),
 					'compiler' => true
 				),
+					array(
+							'id'       => 'sticky-header-bg-color',
+							'type'     => 'color_rgba',
+							'title'    => esc_html__( 'Sticky Header Background Color', 'webuild' ),
+							'subtitle' => esc_html__( 'This option enables you to set the background’s color of the sticky menu', 'webuild' ),
+							'compiler' => array(
+									'#header-sticky'
+							),
+							'mode'     => 'background-color',
+							'required' => array(
+									'sticky-header',
+									'equals',
+									'1'
+							)
+					),
+					array(
+							'id'             => 'select-sticky-menu-font-family',
+							'type'           => 'typography',
+							'title'          => esc_html__( 'Select Menu Font attributes', 'webuild' ),
+							'subtitle'       => esc_html__( 'From here you can set the font for the menu in the sticky header. When setting the color for the menu this will change the color for cart and search icon as well', 'webuild' ),
+							'compiler'       => array(
+									'#header-sticky .primary-menu .navbar-nav > li > a'
+							),
+							'text-transform' => true,
+							'subsets'        => false,
+							'text-align'     => false,
+							'google'         => true,
+							'required' => array(
+									'sticky-header',
+									'equals',
+									'1'
+							)
+					),
 				array(
 					'id'       => 'logo-after',
 					'type'     => 'text',
@@ -90,12 +132,14 @@ if ( ! function_exists( "apro_add_metaboxes" ) ) {
 					)
 				),
 				array(
-					'id'       => 'logo-line-height',
-					'type'     => 'text',
-					'validate' => 'number',
-					'subtitle' => esc_html__( 'This sets the logo height for menu type 1,2', 'webuild' ),
+					'id'       => 'logo-image-height',
+					'type'     => 'dimensions',
+					'units'    => array(
+							'px'
+					),
+					'subtitle' => esc_html__( 'From here you can select the height in pixels for the logo (e.g. 100).<br> The width will be automatically calculated.', 'webuild' ),
 					'title'    => esc_html__( 'Logo height', 'webuild' ),
-					'subtitle' => esc_html__( '', 'webuild' ),
+					'width' => false,
 					'compiler' => true
 				),
 				array(
@@ -106,14 +150,17 @@ if ( ! function_exists( "apro_add_metaboxes" ) ) {
 				),
 				array(
 					'id'       => 'content-offset',
-					'type'     => 'text',
+					'type'     => 'dimensions',
+					'units'    => array(
+							'px'
+					),
 					'title'    => esc_html__( 'Content offset', 'webuild' ),
 					'subtitle' => esc_html__( 'Put the content under the menu(used for transparent menu)', 'webuild' ),
-					'validate' => 'number',
+					'width'    => false,
 					'required' => array(
-						'transparent-header',
-						'equals',
-						'1'
+					'transparent-header',
+					'equals',
+					'1'
 					)
 				),
 				array(
@@ -215,6 +262,7 @@ if ( ! function_exists( "apro_add_metaboxes" ) ) {
 						'one-page-menu'
 					)
 				)
+
 			)
 		);
 		$boxSections[] = array(
@@ -222,12 +270,6 @@ if ( ! function_exists( "apro_add_metaboxes" ) ) {
 			'subtitle' => esc_html__( '', 'webuild' ),
 			'icon'     => 'fa fa-eye',
 			'fields'   => array(
-				array(
-					'id'       => 'slider-effect',
-					'type'     => 'switch',
-					'title'    => esc_html__( 'Slider effect', 'webuild' ),
-					'subtitle' => esc_html__( 'Use only when you have a lot of content on page', 'webuild' ),
-				),
 				array(
 					'id'       => 'page-title-bar',
 					'type'     => 'switch',
@@ -375,6 +417,18 @@ if ( ! function_exists( "apro_add_metaboxes" ) ) {
 					'text-align'     => false,
 					'google'         => true,
 				),
+
+				array(
+					'id'       => 'main-menu-list-item-hover-each',
+					'type'     => 'color',
+					'title'    => esc_html__( 'Main menu Item text color on hover', 'webuild' ),
+					'subtitle' => esc_html__( 'From here you can set the hover color of this page in menu.', 'webuild' ),
+					'default'  => '#f7c51e',
+					'output' => array(
+						'.primary-menu > li > a:hover, .primary-menu .navbar-nav > li > a:hover, .primary-menu .navbar-nav > li.current-menu-item > a, #header-sticky .primary-menu .navbar-nav > li.current-menu-item > a'
+					)
+				),
+
 			)
 		);
 		$boxSections[] = array(

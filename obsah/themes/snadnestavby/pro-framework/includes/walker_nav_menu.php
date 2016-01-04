@@ -449,14 +449,32 @@ if ( ! class_exists( 'Mobile_Walker_Nav_Menu' ) ) {
 					$attributes .= ' ' . $attr . '="' . $value . '"';
 				}
 			}
-			$item_output = $args->before;
+
+			if(is_array($args)):
+				$item_output = $args['before'];
+			else:
+				$item_output = $args->before;
+			endif;
+
 			$item_output .= '<a' . $attributes . '>';
 			/** This filter is documented in wp-includes/post-template.php */
-			$item_output .= $args->link_before . apply_filters( 'the_title', $item->title, $item->ID ) . $args->link_after;
+
+			if(is_array($args)):
+				$item_output .= $args['link_before'] . apply_filters( 'the_title', $item->title, $item->ID ) . $args['link_after'];
+			else:
+				$item_output .= $args->link_before . apply_filters( 'the_title', $item->title, $item->ID ) . $args->link_after;
+			endif;
+
 			$item_output .= '</a>';
 			//add dropdown arrow if needed
 			$item_output .= $dropdown;
-			$item_output .= $args->after;
+
+			if(is_array($args)):
+				$item_output .= $args['after'];
+			else:
+				$item_output .= $args->after;
+			endif;
+
 			$output .= apply_filters( 'walker_nav_menu_start_el', $item_output, $item, $depth, $args );
 		}
 

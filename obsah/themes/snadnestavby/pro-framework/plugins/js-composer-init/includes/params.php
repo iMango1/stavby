@@ -20,7 +20,7 @@ function vc_webuild_on_off( $settings, $value ) {
 	return $output;
 }
 
-add_shortcode_param( 'vc_webuild_on_off', 'vc_webuild_on_off' );
+vc_add_shortcode_param( 'vc_webuild_on_off', 'vc_webuild_on_off' );
 // Textfield
 // ----------------------------------------------------------------------------------
 function vc_webuild_textfield( $settings, $value ) {
@@ -29,7 +29,7 @@ function vc_webuild_textfield( $settings, $value ) {
 	return '<input type="text" name="' . $settings['param_name'] . '" class="wpb_vc_param_value vc_webuild_textfield ' . $settings['param_name'] . ' ' . $settings['type'] . '" value="' . $value . '"' . $placeholder . '/>';
 }
 
-add_shortcode_param( 'vc_webuild_textfield', 'vc_webuild_textfield' );
+vc_add_shortcode_param( 'vc_webuild_textfield', 'vc_webuild_textfield' );
 // Icon
 // ----------------------------------------------------------------------------------
 function vc_webuild_icon( $settings, $value ) {
@@ -47,7 +47,7 @@ function vc_webuild_icon( $settings, $value ) {
 	return $output;
 }
 
-add_shortcode_param( 'vc_webuild_icon', 'vc_webuild_icon' );
+vc_add_shortcode_param( 'vc_webuild_icon', 'vc_webuild_icon' );
 // Image Select
 // ----------------------------------------------------------------------------------
 function vc_webuild_image_select( $settings, $value ) {
@@ -65,14 +65,14 @@ function vc_webuild_image_select( $settings, $value ) {
 	return $output;
 }
 
-add_shortcode_param( 'vc_webuild_image_select', 'vc_webuild_image_select' );
+vc_add_shortcode_param( 'vc_webuild_image_select', 'vc_webuild_image_select' );
 // Content
 // ----------------------------------------------------------------------------------
 function vc_webuild_content( $settings, $value ) {
 	return $settings['content'] . '<input name="' . $settings['param_name'] . '" class="wpb_vc_param_value ' . $settings['param_name'] . ' ' . $settings['type'] . '_field" type="hidden">';
 }
 
-add_shortcode_param( 'vc_webuild_content', 'vc_webuild_content' );
+vc_add_shortcode_param( 'vc_webuild_content', 'vc_webuild_content' );
 // Upload
 // ----------------------------------------------------------------------------------
 function vc_webuild_upload( $settings, $value ) {
@@ -115,7 +115,7 @@ function vc_webuild_upload( $settings, $value ) {
 	return $output;
 }
 
-add_shortcode_param( 'vc_webuild_upload', 'vc_webuild_upload' );
+vc_add_shortcode_param( 'vc_webuild_upload', 'vc_webuild_upload' );
 // Exploded Textarea
 // ----------------------------------------------------------------------------------
 function vc_webuild_exploded_textarea( $settings, $value ) {
@@ -125,7 +125,7 @@ function vc_webuild_exploded_textarea( $settings, $value ) {
 	return '<textarea name="' . $settings['param_name'] . '" rows="10" class="wpb_vc_param_value wpb-vc-pro-exploded-textarea ' . $settings['param_name'] . ' ' . $settings['type'] . '"' . $placeholder . '>' . $value . '</textarea>';
 }
 
-add_shortcode_param( 'vc_webuild_exploded_textarea', 'vc_webuild_exploded_textarea' );
+vc_add_shortcode_param( 'vc_webuild_exploded_textarea', 'vc_webuild_exploded_textarea' );
 // Style Textarea
 // ----------------------------------------------------------------------------------
 function vc_webuild_style_textarea( $settings, $value ) {
@@ -134,7 +134,7 @@ function vc_webuild_style_textarea( $settings, $value ) {
 	return '<textarea name="' . $settings['param_name'] . '" class="wpb_vc_param_value wpb-vc-pro-style-textarea ' . $settings['param_name'] . ' ' . $settings['type'] . '"' . $placeholder . '>' . $value . '</textarea>';
 }
 
-add_shortcode_param( 'vc_webuild_style_textarea', 'vc_webuild_style_textarea' );
+vc_add_shortcode_param( 'vc_webuild_style_textarea', 'vc_webuild_style_textarea' );
 // Shortcode Textarea
 // ----------------------------------------------------------------------------------
 function vc_webuild_shortcode_textarea( $settings, $value ) {
@@ -145,7 +145,7 @@ function vc_webuild_shortcode_textarea( $settings, $value ) {
 	return $output;
 }
 
-add_shortcode_param( 'vc_webuild_shortcode_textarea', 'vc_webuild_shortcode_textarea' );
+vc_add_shortcode_param( 'vc_webuild_shortcode_textarea', 'vc_webuild_shortcode_textarea' );
 // Chosen
 // ----------------------------------------------------------------------------------
 function vc_webuild_chosen( $settings, $value ) {
@@ -163,4 +163,4 @@ function vc_webuild_chosen( $settings, $value ) {
 	return $output;
 }
 
-add_shortcode_param( 'vc_webuild_chosen', 'vc_webuild_chosen' );
+vc_add_shortcode_param( 'vc_webuild_chosen', 'vc_webuild_chosen' );

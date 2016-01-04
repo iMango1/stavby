@@ -1239,48 +1239,6 @@
 
     }
 
-    PRO.scrollOver = function () {
-
-        var $slider = $('.pro-slider');
-
-        //return if the slider is not active
-
-        if ($slider.length == 0) return;
-
-
-        var mastheadMargin = $webuild_masthead.outerHeight(true),
-
-            marginTop = mastheadMargin + $slider.outerHeight(true),
-
-            sliderTop = mastheadMargin,
-
-            $window_y;
-
-
-        $('#content-wrapper').css('margin-top', marginTop + 'px');
-
-        $slider.css('top', mastheadMargin + 'px');
-
-        $(window).scroll(function () {
-
-            $window_y = $(this).scrollTop(),
-
-                sliderTop = ($window_y * -0.45) + mastheadMargin;
-
-
-            $slider.css({
-
-                'top': sliderTop + "px"
-
-            });
-
-
-        })
-
-
-    }
-
-
     PRO.shopTooltip = function () {
 
         $('.yith-wcwl-add-to-wishlist a').each(function () {
@@ -1710,11 +1668,6 @@
 
         PRO.footerSelectMenu();
         PRO.matchHeightVC();
-        if ($('body').hasClass('slider-effect')) {
-
-            PRO.scrollOver();
-
-        }
 
         titleParallax.init();
         parallax.init();

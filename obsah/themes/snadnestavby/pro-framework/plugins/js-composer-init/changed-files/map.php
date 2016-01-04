@@ -1468,6 +1468,10 @@ vc_map( array(
 			'type'        => 'vc_webuild_chosen',
 			'heading'     => 'Custom Categories',
 			'param_name'  => 'cats',
+			'value'       => webuild_element_values( 'categories', array(
+				'sort_order' => 'ASC',
+				'hide_empty' => 0
+			) ),
 			'description' => 'you can choose spesific categories for blog, default is all categories',
 		),
 		array(
@@ -3187,7 +3191,7 @@ vc_map( array(
 			'type'               => 'dropdown',
 			'heading'            => esc_html__( 'Color', 'js_composer' ),
 			'param_name'         => 'color',
-			'value'              => array_merge( getVcShared( 'colors' ), array( esc_html__( 'Custom color', 'js_composer' ) => 'custom' ) ),
+			'value'              => array_merge( webuild_getVcShared( 'colors' ), array( esc_html__( 'Custom color', 'js_composer' ) => 'custom' ) ),
 			'std'                => 'grey',
 			'description'        => esc_html__( 'Separator color.', 'js_composer' ),
 			'param_holder_class' => 'vc_colored-dropdown'
@@ -3206,14 +3210,14 @@ vc_map( array(
 			'type'        => 'dropdown',
 			'heading'     => esc_html__( 'Style', 'js_composer' ),
 			'param_name'  => 'style',
-			'value'       => getVcShared( 'separator styles' ),
+			'value'       => webuild_getVcShared( 'separator styles' ),
 			'description' => esc_html__( 'Separator style.', 'js_composer' )
 		),
 		array(
 			'type'        => 'dropdown',
 			'heading'     => esc_html__( 'Element width', 'js_composer' ),
 			'param_name'  => 'el_width',
-			'value'       => getVcShared( 'separator widths' ),
+			'value'       => webuild_getVcShared( 'separator widths' ),
 			'description' => esc_html__( 'Separator element width in percents.', 'js_composer' )
 		),
 		array(
@@ -3269,7 +3273,7 @@ vc_map( array(
 			'type'               => 'dropdown',
 			'heading'            => esc_html__( 'Color', 'js_composer' ),
 			'param_name'         => 'color',
-			'value'              => array_merge( getVcShared( 'colors' ), array( esc_html__( 'Custom color', 'js_composer' ) => 'custom' ) ),
+			'value'              => array_merge( webuild_getVcShared( 'colors' ), array( esc_html__( 'Custom color', 'js_composer' ) => 'custom' ) ),
 			'std'                => 'grey',
 			'description'        => esc_html__( 'Separator color.', 'js_composer' ),
 			'param_holder_class' => 'vc_colored-dropdown'
@@ -3288,21 +3292,21 @@ vc_map( array(
 			'type'        => 'dropdown',
 			'heading'     => esc_html__( 'Style', 'js_composer' ),
 			'param_name'  => 'style',
-			'value'       => getVcShared( 'separator styles' ),
+			'value'       => webuild_getVcShared( 'separator styles' ),
 			'description' => esc_html__( 'Separator style.', 'js_composer' )
 		),
 		array(
 			'type' => 'dropdown',
 			'heading' => esc_html__( 'Border width', 'js_composer' ),
 			'param_name' => 'border_width',
-			'value' => getVcShared( 'separator border widths' ),
+			'value' => webuild_getVcShared( 'separator border widths' ),
 			'description' => esc_html__( 'Select border width (pixels).', 'js_composer' )
 		),
 		array(
 			'type'        => 'dropdown',
 			'heading'     => esc_html__( 'Element width', 'js_composer' ),
 			'param_name'  => 'el_width',
-			'value'       => getVcShared( 'separator widths' ),
+			'value'       => webuild_getVcShared( 'separator widths' ),
 			'description' => esc_html__( 'Separator element width in percents.', 'js_composer' )
 		),
 		array(
@@ -3354,7 +3358,7 @@ vc_map( array(
 			'type'        => 'dropdown',
 			'heading'     => esc_html__( 'Style', 'js_composer' ),
 			'param_name'  => 'style',
-			'value'       => getVcShared( 'alert styles' ),
+			'value'       => webuild_getVcShared( 'alert styles' ),
 			'description' => esc_html__( 'Alert style.', 'js_composer' )
 		),
 		array(
@@ -3642,7 +3646,7 @@ vc_map( array(
 			'type'        => 'dropdown',
 			'heading'     => esc_html__( 'Image style', 'js_composer' ),
 			'param_name'  => 'style',
-			'value'       => getVcShared( 'single image styles' ),
+			'value'       => webuild_getVcShared( 'single image styles' ),
 			'description' => esc_html__( 'Select image display style.', 'js_comopser' ),
 			'dependency'  => array(
 				'element' => 'source',
@@ -3653,7 +3657,7 @@ vc_map( array(
 			'type'        => 'dropdown',
 			'heading'     => esc_html__( 'Image style', 'js_composer' ),
 			'param_name'  => 'external_style',
-			'value'       => getVcShared( 'single image external styles' ),
+			'value'       => webuild_getVcShared( 'single image external styles' ),
 			'description' => esc_html__( 'Select image display style.', 'js_comopser' ),
 			'dependency'  => array(
 				'element' => 'source',
@@ -3664,7 +3668,7 @@ vc_map( array(
 			'type'               => 'dropdown',
 			'heading'            => esc_html__( 'Border color', 'js_composer' ),
 			'param_name'         => 'border_color',
-			'value'              => getVcShared( 'colors' ),
+			'value'              => webuild_getVcShared( 'colors' ),
 			'std'                => 'grey',
 			'dependency'         => array(
 				'element' => 'style',
@@ -5257,14 +5261,14 @@ vc_map( array(
 			'type'        => 'dropdown',
 			'heading'     => esc_html__( 'Style', 'js_composer' ),
 			'param_name'  => 'style',
-			'value'       => getVcShared( 'button styles' ),
+			'value'       => webuild_getVcShared( 'button styles' ),
 			'description' => esc_html__( 'Button style.', 'js_composer' )
 		),
 		array(
 			'type'               => 'dropdown',
 			'heading'            => esc_html__( 'Color', 'js_composer' ),
 			'param_name'         => 'color',
-			'value'              => getVcShared( 'colors' ),
+			'value'              => webuild_getVcShared( 'colors' ),
 			'description'        => esc_html__( 'Button color.', 'js_composer' ),
 			'param_holder_class' => 'vc_colored-dropdown'
 		),
@@ -5280,7 +5284,7 @@ vc_map( array(
         'param_name' => 'icon',
 
 
-        'value' => getVcShared( 'icons' ),
+        'value' => webuild_getVcShared( 'icons' ),
 
 
         'description' => esc_html__( 'Button icon.', 'js_composer' )
@@ -5291,7 +5295,7 @@ vc_map( array(
 			'type'        => 'dropdown',
 			'heading'     => esc_html__( 'Size', 'js_composer' ),
 			'param_name'  => 'size',
-			'value'       => getVcShared( 'sizes' ),
+			'value'       => webuild_getVcShared( 'sizes' ),
 			'std'         => 'md',
 			'description' => esc_html__( 'Button size.', 'js_composer' )
 		),
@@ -5634,7 +5638,7 @@ vc_map( array(
 			'param_name' => 'style',
 
 
-			'value' => getVcShared( 'cta styles' ),
+			'value' => webuild_getVcShared( 'cta styles' ),
 
 
 			'description' => esc_html__( 'Call to action style.', 'js_composer' )
@@ -5655,7 +5659,7 @@ vc_map( array(
 			'param_name' => 'el_width',
 
 
-			'value' => getVcShared( 'cta widths' ),
+			'value' => webuild_getVcShared( 'cta widths' ),
 
 
 			'description' => esc_html__( 'Call to action element width in percents.', 'js_composer' )
@@ -5676,7 +5680,7 @@ vc_map( array(
 			'param_name' => 'txt_align',
 
 
-			'value' => getVcShared( 'text align' ),
+			'value' => webuild_getVcShared( 'text align' ),
 
 
 			'description' => esc_html__( 'Text align in call to action block.', 'js_composer' )
@@ -5784,7 +5788,7 @@ vc_map( array(
 			'param_name' => 'btn_style',
 
 
-			'value' => getVcShared( 'button styles' ),
+			'value' => webuild_getVcShared( 'button styles' ),
 
 
 			'description' => esc_html__( 'Button style.', 'js_composer' )
@@ -5805,7 +5809,7 @@ vc_map( array(
 			'param_name' => 'color',
 
 
-			'value' => getVcShared( 'colors' ),
+			'value' => webuild_getVcShared( 'colors' ),
 
 
 			'description' => esc_html__( 'Button color.', 'js_composer' ),
@@ -5829,7 +5833,7 @@ vc_map( array(
         'param_name' => 'icon',
 
 
-        'value' => getVcShared( 'icons' ),
+        'value' => webuild_getVcShared( 'icons' ),
 
 
         'description' => esc_html__( 'Button icon.', 'js_composer' )
@@ -5850,7 +5854,7 @@ vc_map( array(
 			'param_name' => 'size',
 
 
-			'value' => getVcShared( 'sizes' ),
+			'value' => webuild_getVcShared( 'sizes' ),
 
 
 			'std' => 'md',
@@ -7012,7 +7016,7 @@ vc_map( array(
 
 
 /*** Visual Composer Content elements refresh ***/
-class VcSharedLibrary {
+class webuild_VcSharedLibrary {
 	// Here we will store plugin wise (shared) settings. Colors, Locations, Sizes, etc...
 	/**
 	 * @var array
@@ -7358,66 +7362,66 @@ class VcSharedLibrary {
  *
  * @return array
  */
-function getVcShared( $asset = '' ) {
+function webuild_getVcShared( $asset = '' ) {
 	switch ( $asset ) {
 		case 'colors':
-			return VcSharedLibrary::getColors();
+			return webuild_VcSharedLibrary::getColors();
 			break;
 
 		case 'colors-dashed':
-			return VcSharedLibrary::getColorsDashed();
+			return webuild_VcSharedLibrary::getColorsDashed();
 			break;
 
 		case 'icons':
-			return VcSharedLibrary::getIcons();
+			return webuild_VcSharedLibrary::getIcons();
 			break;
 
 		case 'sizes':
-			return VcSharedLibrary::getSizes();
+			return webuild_VcSharedLibrary::getSizes();
 			break;
 
 		case 'button styles':
 		case 'alert styles':
-			return VcSharedLibrary::getButtonStyles();
+			return webuild_VcSharedLibrary::getButtonStyles();
 			break;
 		case 'message_box_styles':
-			return VcSharedLibrary::getMessageBoxStyles();
+			return webuild_VcSharedLibrary::getMessageBoxStyles();
 			break;
 		case 'cta styles':
-			return VcSharedLibrary::getCtaStyles();
+			return webuild_VcSharedLibrary::getCtaStyles();
 			break;
 
 		case 'text align':
-			return VcSharedLibrary::getTextAlign();
+			return webuild_VcSharedLibrary::getTextAlign();
 			break;
 
 		case 'cta widths':
 		case 'separator widths':
-			return VcSharedLibrary::getElementWidths();
+			return webuild_VcSharedLibrary::getElementWidths();
 			break;
 
 		case 'separator styles':
-			return VcSharedLibrary::getSeparatorStyles();
+			return webuild_VcSharedLibrary::getSeparatorStyles();
 			break;
 
 		case 'separator border widths':
-			return VcSharedLibrary::getBorderWidths();
+			return webuild_VcSharedLibrary::getBorderWidths();
 			break;
 
 		case 'single image styles':
-			return VcSharedLibrary::getBoxStyles();
+			return webuild_VcSharedLibrary::getBoxStyles();
 			break;
 
 		case 'single image external styles':
-			return VcSharedLibrary::getBoxStyles( array( 'default', 'round' ) );
+			return webuild_VcSharedLibrary::getBoxStyles( array( 'default', 'round' ) );
 			break;
 
 		case 'toggle styles':
-			return VcSharedLibrary::getToggleStyles();
+			return webuild_VcSharedLibrary::getToggleStyles();
 			break;
 
 		case 'animation styles':
-			return VcSharedLibrary::getAnimationStyles();
+			return webuild_VcSharedLibrary::getAnimationStyles();
 			break;
 
 		default:

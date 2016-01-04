@@ -36,7 +36,7 @@ Redux::setSection( $opt_name, array(
 				'font-size'      => '14px',
 				'font-family'    => 'Lato',
 				'font-weight'    => '700',
-				'line-height'    => '100px',
+				'line-height'    => '75px',
 				'text-transform' => 'uppercase'
 			)
 		),

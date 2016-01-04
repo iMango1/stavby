@@ -75,6 +75,7 @@ function vc_staff( $atts, $content = null ) {
 			$output .= '<h6 ' . $job_color_style . '>' . $members_terms[0]->name . '</h6>';
 			$output .= '<div class="about" ' . $text_color_style . '>' . $extra_info["staff_member_description"][0] . '</div>';
 			$output .= '<div class="social">';
+
 			$output .= '<a href="mailto:' . $extra_info['staff_member_email'][0] . '" target="_blank" class="fa fa-envelope" data-toggle="tooltip" data-html="true" ></a>';
 			if ( $extra_info['staff_member_facebook_link'][0] ) {
 				$output .= '<a href="' . $extra_info['staff_member_facebook_link'][0] . '" target="_blank" class="fa fa-facebook" data-toogle="tooltip" data-html="true" ></a>';
@@ -275,8 +276,9 @@ function vc_staff_carousel( $atts, $content = null ) {
 		$output .= '<h6 style="color:' . $job_color . ';">' . $members_terms[0]->name . '</h6>';
 		$output .= '<div class="about" style="color:' . $text_color . ';">' . $extra_info["staff_member_description"][0] . '</div>';
 		$output .= '<div class="social">';
-		if ( isset( $extra_info['staff_member_email'][0] ) ) {
-			$output .= '<a href="mailto:' . $extra_info['staff_member_email'][0] . '" target="_blank" class="fa fa-envelope" data-toggle="tooltip" data-html="true" ></a>';
+		//$output .= '<a href="mailto:' . $extra_info['staff_member_email'][0] . '" target="_blank" class="fa fa-envelope" data-toggle="tooltip" data-html="true" ></a>';
+		if ( isset( $extra_info['staff_member_email_adress'][0] ) ) {
+			$output .= '<a href="mailto:' . $extra_info['staff_member_email_adress'][0] . '" target="_blank" class="fa fa-envelope" data-toggle="tooltip" data-html="true" ></a>';
 		}
 
 		if ( isset( $extra_info['staff_member_facebook_link'][0] ) ) {

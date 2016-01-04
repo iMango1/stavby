@@ -11,10 +11,10 @@ if ( ! function_exists( 'webuild_body_class_names' ) ) {
 		global $apro_options;
 		$boxed_layout = $apro_options['layout-type'] == 'boxed' ? 'boxed' : '';
 		$sticky_header = $apro_options['sticky-header'] ? 'sticky-header' : '';
-		$slider_effect = $apro_options['slider-effect'] ? 'slider-effect' : '';
+		$slider_effect = '';
 		$top_bar_tablets = $apro_options['hide-top-bar-tablets'] ? 'no-tablet-top-bar' : '';
 		$top_bar_mobiles = $apro_options['hide-top-bar-mobiles'] ? 'no-mobile-top-bar' : '';
-		$classes[] = "$boxed_layout $sticky_header $top_bar_tablets $top_bar_mobiles $slider_effect";
+		$classes[] = "$boxed_layout $sticky_header $top_bar_tablets $top_bar_mobiles";
 
 		return $classes;
 	}

@@ -114,7 +114,7 @@ function vc_column_offset_class_merge( $column_offset, $width ) {
 }
 
 function vc_load_column_offset_param() {
-	add_shortcode_param( 'column_offset', 'vc_column_offset_form_field', vc_asset_url( 'js/params/column_offset.js' ) );
+	vc_add_shortcode_param( 'column_offset', 'vc_column_offset_form_field', vc_asset_url( 'js/params/column_offset.js' ) );
 }
 
 add_action( 'vc_load_default_params', 'vc_load_column_offset_param' );

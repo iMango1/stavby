@@ -60,13 +60,19 @@ Redux::setSection( $opt_name, array(
 			'compiler' => true
 		),
 		array(
-			'id'       => 'logo-line-height',
-			'type'     => 'text',
-			'validate' => 'number',
-			'subtitle' => wp_kses(__( 'From here you can select the height in pixels for the logo<br>This sets the logo height for menu type 1,2 (e.g. 100).', 'webuild' ),$allowed_html),
+			'id'       => 'logo-image-height',
+			'type'     => 'dimensions',
+			'units'    => array(
+					'px'
+			),
+			'subtitle' => wp_kses(__( 'From here you can select the height in pixels for the logo (e.g. 100).<br> The width will be automatically calculated.', 'webuild' ),$allowed_html),
 			'title'    => esc_html__( 'Logo height', 'webuild' ),
-			'compiler' => true,
-			'default'  => '100',
+			'width' => false,
+			'default'  => array(
+					'height' => '',
+					'units'  => ''
+			),
+			'compiler' => true
 		),
 		array(
 			'id'       => 'transparent-header',
@@ -78,11 +84,17 @@ Redux::setSection( $opt_name, array(
 		),
 		array(
 			'id'       => 'content-offset',
-			'type'     => 'text',
+			'type'     => 'dimensions',
+			'units'    => array(
+					'px'
+			),
 			'title'    => esc_html__( 'Content offset', 'webuild' ),
 			'subtitle' => esc_html__( 'This option puts the content under the menu (used for transparent menus). Please set the value in pixels for how much do you want the content to appear under the menu.', 'webuild' ),
-			'validate' => 'number',
-			'default'  => '0',
+			'default'  => array(
+					'height' => '0',
+					'units'  => 'px'
+			),
+			'width' => false,
 			'required' => array(
 				'transparent-header',
 				'equals',
@@ -108,13 +120,6 @@ Redux::setSection( $opt_name, array(
 				'above' => 'Above'
 			),
 			'default'  => 'below'
-		),
-		array(
-			'id'       => 'slider-effect',
-			'type'     => 'switch',
-			'title'    => esc_html__( 'Slider effect', 'webuild' ),
-			'subtitle' => esc_html__( 'This option, when scrolling, brings the content on top of the header. Recommended to use only when you have a lot of content on the page.', 'webuild' ),
-			'default'  => true
 		),
 		array(
 			'id'       => 'full-width-header',
@@ -293,7 +298,7 @@ Redux::setSection( $opt_name, array(
 				'color'       => '#a1b1bc',
 				'font-size'   => '14px',
 				'font-weight' => '400',
-				'font-family' => '"Open Sans"',
+				'font-family' => 'Open Sans',
 				'google'      => true
 			),
 			'required'    => array(
@@ -454,7 +459,7 @@ Redux::setSection( $opt_name, array(
 			'default'        => array(
 				'color'          => '#2c3e50',
 				'font-size'      => '14px',
-				'font-family'    => '"Open Sans"',
+				'font-family'    => 'Open Sans',
 				'font-weight'    => '700',
 				'line-height'    => '24px',
 				'text-transform' => 'uppercase'
@@ -504,7 +509,7 @@ Redux::setSection( $opt_name, array(
 			'compiler' => array(
 				'#header-sticky'
 			),
-			'mode'     => 'background',
+			'mode'     => 'background-color',
 			'required' => array(
 				'sticky-header',
 				'equals',
@@ -531,6 +536,19 @@ Redux::setSection( $opt_name, array(
 				'1'
 			)
 		),
+			array(
+					'id'       => 'sticky-header-full-width',
+					'type'     => 'switch',
+					'title'    => esc_html__( 'Enable Sticky Header Full Width', 'webuild' ),
+					'subtitle' => esc_html__( 'This option enables the website’s sticky menu to be full width.', 'webuild' ),
+					'default'  => true,
+					'compiler' => true,
+					'required' => array(
+							'sticky-header',
+							'equals',
+							'1'
+					)
+			),
 	)
 ) );
 ?>

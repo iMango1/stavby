@@ -36,5 +36,4 @@ include_once( get_template_directory() . '/pro-framework/config/pro-post-formats
 include_once( get_template_directory() . '/pro-framework/classes/pro-framework-sidebars-api.php');
 include_once( get_template_directory() . '/pro-framework/config/pro-widgets-config.php');
 
-
 ?>

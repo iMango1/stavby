@@ -335,9 +335,6 @@ div#header-sticky {
 	-webkit-transition: max-width 400ms ease, width 400ms ease, padding 400ms ease;
 	transition: max-width 400ms ease, width 400ms ease, padding 400ms ease;
 }
-#header-sticky.fixed .container {
-	width: 100%;
-}
 #header-sticky > .navbar {
 	border: none;
 }
@@ -1595,14 +1592,15 @@ li .fa.dropdown-icon {
 .logo {
 	text-align: center;
 }
+
 .fixed .logo img {
     top: 7px;    
 }
+
 .logo img {
 	vertical-align: middle;
     top: 18px;
     height: 40px;
-    
     position: absolute;
 }
 /*sticky header*/
@@ -1614,6 +1612,11 @@ body #header-sticky.sticky-header {
 	display: none;
 	width: 100%;
 }
+#header-sticky sticky-header .logo img {
+	height: 80%;
+	width: auto;
+}
+
 /*--------------------------------------------------------------
 4.0 Inner page
 --------------------------------------------------------------*/
@@ -3536,6 +3539,9 @@ aside.sidebar .widget_nav_menu .fa {
 	width: 100%;
 	margin-top: 10px;
 }
+.uvc-heading-spacer {
+	height: auto !important;
+}
 /**
  * ========================================
  * FIXED NAV
@@ -4102,9 +4108,9 @@ MC4WP form
 .pro-hide {
 	display: none;
 }
-.transparent-header #top-menu {
-	background-color: transparent;
-	border-color: transparent;
+.transparent-header #top-menu , #header-sticky.transparent-header{
+	background-color: transparent !important;
+	border-color: transparent !important;
 }
 #header-sticky .logo-inline-menu {
 	display: none;
@@ -4144,6 +4150,7 @@ MC4WP form
 .site-header.transparent-header {
 	-webkit-box-shadow: none;
 	box-shadow: none;
+	background-color: transparent;
 }
 /*paralax*/
 .page-header, .top-footer {
@@ -4182,18 +4189,6 @@ MC4WP form
 		left: 0;
 		z-index: 0;
 	}
-}
-.slider-effect .pro-slider {
-	position: fixed;
-	top: 0;
-	left: 0;
-	height: 100%;
-	width: 100%;
-	z-index: 1;
-	overflow: hidden;
-}
-.slider-effect #content-wrapper {
-	z-index: 2;
 }
 .black-overlay {
 	position: absolute;
@@ -5134,6 +5129,9 @@ article .entry-category a {
 }
 .pro-tab.pro-tab-default .pro-tab-nav {
 	background-image: none;
+}
+.pro-tab-nav {
+	height: 41px !important;
 }
 .tagged_as a {
 	font-weight: 400;
@@ -6838,6 +6836,11 @@ h3.nav-previous, h3.nav-next {
 	height: auto;
 	border: 1px solid transparent;
 }
+
+.vc_carousel-slideline .vc_slide_post  .entry-more.pro-btn {
+	display: none;
+}
+
 /* Arrows */
 .slick-prev,
 .slick-next {

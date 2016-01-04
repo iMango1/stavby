@@ -17,7 +17,7 @@
 			<div class="border">
 				<?php
 				if ( ! is_single() ) : ?>
-					<div class="post-excerpt entry-summary"><?php the_excerpt(); ?></div><!-- /entry-summary -->
+					<div class="post-excerpt entry-summary"><?php global $apro_options; echo sin_excerpt($apro_options['excerpt-length']); ?></div><!-- /entry-summary -->
 				<?php else : ?>
 					<div
 						class="post-excerpt entry-content"><?php the_content( esc_html__( 'Read More', 'webuild' ) ); ?></div><!-- /entry-content -->
